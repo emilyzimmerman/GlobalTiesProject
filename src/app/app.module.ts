@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SavedresourceComponent } from './dashboard/savedresource/savedresource.component';
 import { GTresourcesComponent } from './shared/gtresources/gtresources.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GTresourcesComponent } from './shared/gtresources/gtresources.component
     GTresourcesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
