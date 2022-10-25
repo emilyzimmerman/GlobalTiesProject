@@ -1,8 +1,20 @@
-import { addresource } from "./addresource.model";
+import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
+import { resource } from "./addresource.model";
+
+@Injectable ({providedIn:'root'})
 
 export class gtresources {
-    private source: addresource[] = [];
+  resourceChange = new Subject<resource[]>()
+    private source: resource[] = [];
 
+    getResource() {
+      return this.source.slice();
+    }
 
+    addResource(newResource: resource){
+      this.source.push(newResource);
+      this.resourceChange.next(this.getResource());
+    }
 
 }
