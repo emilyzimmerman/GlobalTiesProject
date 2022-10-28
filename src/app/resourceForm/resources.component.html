@@ -1,14 +1,17 @@
 
 <br>
-<div class="container">
+<form (ngSubmit)="onAddSource(InputRef)" #InputRef="ngForm">
+  <div class="container">
   <h2>Resources</h2>
 </div>>
 <div class="container">
-  <input type="text" #actionInput>
-  <button type="button" (click) = "onAddSource()">submit</button>
+  <input type="text" name="answer" id="answer" ngModel>
+  <button type="submit">submit</button>
   <h6>Please submit resource</h6>
 </div>
+</form>
 
 <hr>
 <br>
-<app-gtresources></app-gtresources>
+
+<app-resource-display></app-resource-display>

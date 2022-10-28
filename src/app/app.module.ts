@@ -10,6 +10,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SavedresourceComponent } from './dashboard/savedresource/savedresource.component';
 import { GTresourcesComponent } from './shared/gtresources/gtresources.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { ResourceDisplayComponent } from './resourceForm/resource-display/resource-display.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderComponent,
     HomepageComponent,
     SavedresourceComponent,
-    GTresourcesComponent
+    GTresourcesComponent,
+    ResourceDisplayComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

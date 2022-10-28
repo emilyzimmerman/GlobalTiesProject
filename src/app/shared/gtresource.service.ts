@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { TestBed } from "@angular/core/testing";
 import { Subject } from "rxjs";
 import { resource } from "./addresource.model";
 
@@ -6,7 +7,9 @@ import { resource } from "./addresource.model";
 
 export class gtresources {
   resourceChange = new Subject<resource[]>()
-    private source: resource[] = [];
+    private source: resource[] = [
+      
+    ];
 
     getResource() {
       return this.source.slice();
@@ -14,7 +17,7 @@ export class gtresources {
 
     addResource(newResource: resource){
       this.source.push(newResource);
-      this.resourceChange.next(this.getResource());
+      this.resourceChange.next
     }
 
 }
