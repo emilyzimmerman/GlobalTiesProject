@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { TestBed } from "@angular/core/testing";
 import { Subject } from "rxjs";
 import { resource } from "./addresource.model";
 
@@ -8,7 +7,7 @@ import { resource } from "./addresource.model";
 export class gtresources {
   resourceChange = new Subject<resource[]>()
     private source: resource[] = [
-      
+
     ];
 
     getResource() {
@@ -17,7 +16,13 @@ export class gtresources {
 
     addResource(newResource: resource){
       this.source.push(newResource);
-      this.resourceChange.next
+      // send broadcast to those who are subscribed
+      this.resourceChange.next(this.getResource())
+    }
+
+    deleteSource(index: number){
+      this.source.splice(index, 1);
+      this.resourceChange.next(this.getResource())
     }
 
 }

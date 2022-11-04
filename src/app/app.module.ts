@@ -8,10 +8,10 @@ import { SharedComponent } from './shared/shared.component';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SavedresourceComponent } from './dashboard/savedresource/savedresource.component';
-import { GTresourcesComponent } from './shared/gtresources/gtresources.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ResourceDisplayComponent } from './resourceForm/resource-display/resource-display.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { ResourceDisplayComponent } from './resourceForm/resource-display/resour
     HeaderComponent,
     HomepageComponent,
     SavedresourceComponent,
-    GTresourcesComponent,
-    ResourceDisplayComponent
+    ResourceDisplayComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
