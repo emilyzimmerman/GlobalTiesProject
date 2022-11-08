@@ -3,15 +3,30 @@
 <form (ngSubmit)="onAddSource(InputRef)" #InputRef="ngForm">
   <div class="container">
   <h2>Resources</h2>
+  </div>
+<div class="container">
+<div class="form-group">
+  <label for="nameOfSource">Name of Resource</label>
+  <input type="text" class="form-control" name="answer" id="answer" [ngModel]="this.source.name">
+</div>
+<div class="form-group">
+  <label for="summary">Summary</label>
+  <input type="text" class="form-control" id="summary" name="summary" [ngModel]="this.source.summary">
+</div>
+<div class="form-group">
+  <label for="summary">Link</label>
+  <input type="text" class="form-control" id="link" name="link" [ngModel]="this.source.link">
 </div>
 <div class="container">
-  <input type="text" name="answer" id="answer" ngModel>
-  <button type="submit">submit</button>
+  <button type="submit" class="btn btn-primary">submit</button>
+</div>
+<div class="container">
   <h6>Please submit resource</h6>
 </div>
+</div>
+
 </form>
 
 <hr>
-<br>
 
 <app-resource-display></app-resource-display>

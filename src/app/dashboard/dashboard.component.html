@@ -1,7 +1,19 @@
 <h1> Dashboard </h1>
-<div><p>
+<hr>
+<div class="container"><h3>
   Welcome User
-</p></div>
-<div class="container" *ngFor="let favorites of favResources">
-
+</h3></div>
+<div class="container" *ngFor="let favorites of favResources; let dashIndex = index">
+    <div class="card">
+      <div class="card-header">
+        Source {{dashIndex + 1}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{favorites.name}}</h5>
+        <p class="card-text">{{favorites.summary}}</p>
+        <p class="card-text">{{ favorites.link }}</p>
+        <a class="btn btn-primary"> Edit </a> |
+        <a class="btn btn-danger" (click)="onDelete(dashIndex)"> Delete </a>
+      </div>
+    </div>
 </div>

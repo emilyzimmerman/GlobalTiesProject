@@ -1,3 +1,5 @@
-export interface resource{
-  name: string;
+export class resource{
+  name: string = '';
+  summary: string = '';
+  link: string = '';
 }

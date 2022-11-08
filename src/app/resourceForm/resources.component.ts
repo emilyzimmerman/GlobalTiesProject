@@ -9,21 +9,28 @@ import { gtresources } from '../shared/gtresource.service';
 })
 export class ResourcesComponent implements OnInit {
   actionInputRef: any;
-  source: any;
+  source: any = {
+    name: '',
+    summary: '',
+  };
 
-  constructor(private sources: gtresources) {}
+  constructor(public sources: gtresources) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sources.resourceChange.subscribe((updatedResources: resource[]) => {
+      this.source = updatedResources;
+    });
+  }
 
   onAddSource(InputRef: any) {
     const source = InputRef.value.answer;
+    const summary = InputRef.value.summary;
+    const link = InputRef.value.link
     console.log(source);
     this.sources.addResource({
       name: source,
-    });
-
-    this.sources.resourceChange.subscribe((updatedResources: resource[]) => {
-      this.source = updatedResources;
+      summary: summary,
+      link: link
     });
   }
 }

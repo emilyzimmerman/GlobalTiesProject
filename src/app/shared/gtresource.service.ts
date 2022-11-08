@@ -1,14 +1,26 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { resource } from "./addresource.model";
+import { DashboardService } from "./dashboard.service";
 
 @Injectable ({providedIn:'root'})
 
 export class gtresources {
   resourceChange = new Subject<resource[]>()
-    private source: resource[] = [
+    private source: resource[] = [{
+      name: 'Test 1',
+      summary: 'This is a test',
+      link: 'Pretend link'},
 
-    ];
+    {
+      name: 'Test 2',
+      summary:'This is a test',
+      link: 'Pretend link'
+    }];
+
+    constructor (private dashservice: DashboardService){
+
+    }
 
     getResource() {
       return this.source.slice();
@@ -24,5 +36,9 @@ export class gtresources {
       this.source.splice(index, 1);
       this.resourceChange.next(this.getResource())
     }
+
+    // addSourcestoDash(resources: resource []){
+    //   this.dashservice.addResourceDisplay(resources)
+    // }
 
 }

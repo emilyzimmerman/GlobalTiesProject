@@ -1,14 +1,17 @@
-
-<div class="container"  *ngFor="let sources of listSources; let resourceIndex = index;">
+<div
+  class="container"
+  *ngFor="let sources of listSources; let resourceIndex = index"
+>
   <div class="card">
-    <div class="card-header">
-      {{resourceIndex + 1}}
-    </div>
+    <div class="card-header">Source {{ resourceIndex + 1 }}</div>
     <div class="card-body">
-      <h5 class="card-title">{{sources.name}}</h5>
-      <p class="card-text">What the resource is about: also add string interpolation somehow</p>
-      <a class="btn btn-primary" (click)="onAddSource()"> Add </a>
-      <a class="btn btn-danger" (click)="onDeleteSource(resourceIndex)"> Delete </a>
+      <h5 class="card-title">{{ sources.name }}</h5>
+      <p class="card-text">{{ sources.summary }}</p>
+      <p class="card-text">{{ sources.link }}</p>
+      <a class="btn btn-primary" (click)="onAddToDash(sources)"> Add </a>
+      <a class="btn btn-danger" (click)="onDeleteSource(resourceIndex)">
+        Delete
+      </a>
     </div>
   </div>
-  </div>
+</div>
