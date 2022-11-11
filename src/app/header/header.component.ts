@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
@@ -8,11 +10,15 @@ import { DataStorageService } from '../shared/data-storage.service';
     './header.component.css',
   ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+  private userSub: Subscription; //FIX ME 5:33
 
-  constructor(private dataStorageService: DataStorageService) { }
+  constructor(
+    private dataStorageService: DataStorageService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe();
   }
 
   onStoreSources(){

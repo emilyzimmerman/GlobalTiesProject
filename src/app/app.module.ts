@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { ResourceDisplayComponent } from './resourceForm/resource-display/resource-display.component';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardService } from './shared/dashboard.service';
+import { loadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DashboardService } from './shared/dashboard.service';
     HomepageComponent,
     SavedresourceComponent,
     ResourceDisplayComponent,
-    AuthComponent
+    AuthComponent,
+    loadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
