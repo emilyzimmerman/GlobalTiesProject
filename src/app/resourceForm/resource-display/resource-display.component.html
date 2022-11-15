@@ -7,7 +7,11 @@
     <div class="card-body">
       <h5 class="card-title">{{ sources.name }}</h5>
       <p class="card-text">{{ sources.summary }}</p>
-      <p class="card-text">{{ sources.link }}</p>
+      <div>
+        <a class="card-text" href="{{ sources.link }}" target="_blank">{{
+          sources.link
+        }}</a>
+      </div>
       <a class="btn btn-primary" (click)="onAddToDash(sources)"> Add </a>
       <a class="btn btn-danger" (click)="onDeleteSource(resourceIndex)">
         Delete

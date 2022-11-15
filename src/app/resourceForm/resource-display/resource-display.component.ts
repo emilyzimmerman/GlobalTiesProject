@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'src/app/shared/dashboard.service';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { gtresources } from 'src/app/shared/gtresource.service';
 
 @Component({
@@ -12,10 +13,14 @@ export class ResourceDisplayComponent implements OnInit {
 
   constructor(
     private sources: gtresources,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private dataStorage: DataStorageService,
   ) {}
 
   ngOnInit(): void {
+    // Fetch the resourcse here
+    this.dataStorage.fetchSources();
+
     this.listSources = this.sources.getResource();
     this.sources.resourceChange.subscribe((updatedResources) => {
       this.listSources = updatedResources;

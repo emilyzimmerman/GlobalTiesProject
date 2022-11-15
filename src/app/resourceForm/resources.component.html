@@ -14,11 +14,19 @@
   <input type="text" class="form-control" id="summary" name="summary" [ngModel]="this.source.summary">
 </div>
 <div class="form-group">
-  <label for="summary">Link</label>
-  <input type="text" class="form-control" id="link" name="link" [ngModel]="this.source.link">
+  <label for="url">Link</label>
+  <input
+    type="url"
+    class="form-control"
+    id="url"
+    name="url"
+    pattern="https://.*"
+    [ngModel]="this.source.link">
 </div>
 <div class="container">
-  <button type="submit" class="btn btn-primary">submit</button>
+  <button type="submit" class="btn btn-primary">submit</button> |
+  <a class="btn btn-dark" (click)="onStoreSources()"> Save </a> |
+  <a class="btn btn-light" (click)="onFetchData()"> Fetch </a>
 </div>
 <div class="container">
   <h6>Please submit resource</h6>

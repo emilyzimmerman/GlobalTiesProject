@@ -16,4 +16,4 @@ export class User {
 
 
 //buttone that views link ? or href on anchor tag
-//save resources on resource page to firebase get rid of dropdown
+

@@ -3,20 +3,24 @@ import { Subject } from 'rxjs';
 import { resource } from './addresource.model';
 
 @Injectable({ providedIn: 'root' })
+
 export class DashboardService {
+
   dashboardChanged = new Subject<resource[]>();
-  public sources: resource[] = [
-    {
-      name: 'DashTest 1',
-      summary: 'This is a test',
-      link: 'pretend link'
-    },
-    {
-      name: 'DashTest 2',
-      summary: 'This is a test',
-      link: 'pretend link'
-    },
-  ];
+  // public sources: resource[] = [
+  //   {
+  //     name: 'DashTest 1',
+  //     summary: 'This is a test',
+  //     link: 'pretend link'
+  //   },
+  //   {
+  //     name: 'DashTest 2',
+  //     summary: 'This is a test',
+  //     link: 'pretend link'
+  //   },
+  // ];
+
+  private sources: resource[] = [];
 
   addResource(source: any) {
     this.sources.push(source);
@@ -39,5 +43,10 @@ export class DashboardService {
   deleteDashSource(index: number) {
     this.sources.splice(index, 1);
     this.dashboardChanged.next(this.getDashResources());
+  }
+
+  updateSource(index: number, newResource: resource){
+    this.sources[index] = newResource;
+    this.dashboardChanged.next(this.sources.slice());
   }
 }

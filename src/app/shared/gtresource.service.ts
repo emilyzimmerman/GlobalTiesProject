@@ -37,6 +37,10 @@ export class gtresources {
       this.resourceChange.next(this.getResource())
     }
 
+    setResources(newSource: resource[]) {
+      this.source = newSource;
+      this.resourceChange.next(this.source.slice());
+    }
     // addSourcestoDash(resources: resource []){
     //   this.dashservice.addResourceDisplay(resources)
     // }
